@@ -25,13 +25,16 @@
 #include "dht11.h"
 #include "alarm_settings.h"
 
-/* External display / I2C functions (implemented elsewhere) */
+/* Display and UI functions implemented in project-specific drivers
+ * (hardware-specific implementations intentionally not included here)
+ */
 void SSD1306_Init(void);
 void SSD1306_ClearDisplay(void);
 void display_real_time(void);
 void display_alarm_time(void);
 void press_sound(void);
 
+/* Main application loop (hardware-specific details intentionally abstracted) */
 int main(void)
 {
     SYSTEM_Initialize();
