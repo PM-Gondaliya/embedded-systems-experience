@@ -95,6 +95,10 @@ This repository intentionally focuses on **implementation and system-level aspec
 
 ---
 
+A short demonstration video of the internship project can also be shared upon request.
+
+---
+
 ## 2. Current Academic Project – AI on FPGA *(Ongoing)*
 
 - **Supervisor:** Prof. Dr. Florian Aschauer  
