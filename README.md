@@ -1,2 +1,147 @@
-# embedded-systems-experience
-Embedded firmware &amp; FPGA project summaries - completed internship work and ongoing AI-on-FPGA research
+# Embedded Systems Experience – Technical Summary
+
+**Note:** This repository documents embedded systems projects developed during an **industry internship (2023)** and a current academic project. The code and documentation are published **after completion of the internship** for academic reference and Master’s thesis applications.
+
+---
+
+## Overview
+This repository provides a **system-level technical summary and concrete firmware artifacts** from my embedded systems experience. The focus is on **bare-metal firmware development, hardware interaction, and real-time behavior**, rather than introductory programming concepts.
+
+The repository is intended for **thesis supervisors and engineers** who want to quickly assess how I approach real embedded systems problems.
+
+---
+
+## 1. Industry Internship Project – Embedded Firmware Development
+
+- **Domain:** Embedded systems (industry internship)  
+- **Platform:** PIC microcontroller (PIC24 family)  
+- **Language & Tools:** Embedded C, MPLAB X IDE  
+- **Execution Model:** Bare-metal
+
+### Project Context
+The internship project involved the design and implementation of **firmware for a microcontroller-based embedded system**, interacting directly with hardware peripherals and operating under real timing and resource constraints.
+
+As an integration and validation exercise, a **Digital Clock with Alarm functionality** was implemented on the target hardware.
+
+Firmware development was performed with **direct reference to MCU and peripheral datasheets**, enabling independent hardware interfacing without reliance on a dedicated hardware engineer.
+
+---
+
+### Firmware Architecture
+The firmware is structured into clear functional layers:
+
+- **System initialization**  
+  Clock setup, GPIO configuration, peripheral initialization
+- **Peripheral drivers**  
+  UART, I²C, SPI, ADC, PWM
+- **Timing and control**  
+  Hardware timers, interrupt service routines (ISRs)
+- **Application logic**  
+  Timekeeping, alarm logic, and system coordination
+
+This structure separates **hardware configuration**, **driver code**, and **application logic**, improving maintainability and debuggability.
+
+---
+
+### Repository Structure (Internship Project)
+
+The repository is organized to clearly separate firmware source code, documentation, and supporting artifacts:
+
+```
+embedded-systems-experience/
+├── src/              # Embedded firmware source (drivers, ISRs, application logic)
+├── include/          # Header files
+├── diagrams/         # Block diagrams and hardware visuals
+├── docs/             # Optional technical notes and references
+└── README.md         # Project overview and technical summary
+```
+
+
+This structure reflects a typical embedded firmware workflow, enabling clear separation between low-level drivers, application logic, and documentation.
+
+---
+
+### Technical Work Performed
+During the internship, I personally worked on:
+
+- Bare-metal embedded firmware development
+- Register-level peripheral configuration
+- Timer- and interrupt-driven system design
+- UART communication setup and debugging
+- I²C / SPI peripheral interfacing
+- ADC configuration and sampling
+- PWM generation for timing and control
+- Integration and extension of MCC-generated code with **custom, register-level firmware modules**
+- Debugging timing-related and hardware-dependent issues on real boards
+
+---
+
+### Real-Time and System Considerations
+Key engineering considerations included:
+
+- Deterministic execution using hardware timers
+- Interrupt latency and prioritization
+- Limited memory and processing resources
+- Correct initialization and sequencing of peripherals
+- Differences between datasheet-level behavior and real hardware behavior
+
+---
+
+### Internship Report
+A detailed technical internship report exists and can be shared **upon request**.  
+This repository intentionally focuses on **implementation and system-level aspects** rather than tutorial-style documentation.
+
+---
+
+## 2. Current Academic Project – AI on FPGA *(Ongoing)*
+
+- **Supervisor:** Prof. Dr. Florian Aschauer  
+- **Focus:** Hardware-oriented acceleration for AI on FPGA
+
+### Project Scope
+The goal of this project is to explore **low-latency, pipelined arithmetic architectures** as a foundation for future AI accelerators on FPGA.
+
+The current phase focuses on **Online Arithmetic (MSDF)** to avoid carry-propagation delays and study architectural trade-offs relevant to real-time systems.
+
+---
+
+### Current Implementation: Radix-2 Online Adder
+
+- **Architecture:** Splitter → Latch → Mixer (two-stage pipeline)
+- **Initiation Interval:** II = 1 (single-cycle throughput)
+- **Online Delay:** δ = 2 (theoretical minimum)
+- **Digit set:** {−1, 0, +1}
+- **Implementation style:** HLS-based C++ design
+
+---
+
+### Verification and Evaluation
+
+- File-based testbench with binary input streams
+- Automatic support for variable bit-widths (8, 12, 16 bits)
+- Pipeline flush handling
+- Clock-cycle measurement, latency validation, and functional correctness checks
+
+The emphasis is on **latency, throughput, and correctness**, not demo-level results.
+
+---
+
+## Cross-Project Skill Alignment
+Across both projects, I have developed a consistent focus on:
+
+- System-level thinking
+- Real-time and resource-constrained design
+- Hardware–software co-design and timing-aware system reasoning
+- Debugging and validation on physical hardware
+
+---
+
+## Motivation for Master’s Thesis
+I am seeking a **Master’s thesis in embedded systems, electronics, or system-level embedded design**, preferably in an industry-related context, with hands-on involvement from firmware down to datasheet-driven hardware interfacing.
+
+---
+
+## Author
+**Parth Gondaliya**  
+M.Sc. Electrical and Microsystems Engineering  
+Master’s Thesis Candidate
